@@ -7,3 +7,6 @@ Current Design Patterns:
 - Strategy Design Pattern
 - Factory Design Pattern
 - Template Design Pattern
+- Facade Design Pattern
+- Adapter Design Pattern
+- Singleton Design Pattern
