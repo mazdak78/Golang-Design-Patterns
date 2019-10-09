@@ -10,3 +10,4 @@ Current Design Patterns:
 - Facade Design Pattern
 - Adapter Design Pattern
 - Singleton Design Pattern
+- Builder Design Pattern
