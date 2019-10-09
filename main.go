@@ -4,6 +4,7 @@ import(
 	"Golang-Design-Patterns/adapter"
 	"Golang-Design-Patterns/facade"
 	"Golang-Design-Patterns/factory"
+	"Golang-Design-Patterns/builder"
 	"Golang-Design-Patterns/singleton"
 	s "Golang-Design-Patterns/strategy"
 	"Golang-Design-Patterns/template"
@@ -52,6 +53,19 @@ func main(){
 	config2, _ := singleton.ConfigRepository().Get("Config 2")
 	fmt.Printf("Config 1: %s \n", config1)
 	fmt.Printf("Config 2: %s \n", config2)
+
+	fmt.Printf("---------------------------\n")
+	fmt.Printf("Builder Pattern:\n")
+
+	chef := builder.ChefDirector{}
+
+	_steakBuilder := builder.SteakBuilder{}
+	food := chef.MixMaterials(_steakBuilder)
+	food.Cook()
+
+	_pastaBuilder := builder.PastaBuilder{}
+	food = chef.MixMaterials(_pastaBuilder)
+	food.Cook()
 
 
 	fmt.Printf("---------------------------\n")
