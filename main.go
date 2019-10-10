@@ -1,10 +1,11 @@
 package main
 
-import(
+import (
 	"Golang-Design-Patterns/adapter"
+	"Golang-Design-Patterns/builder"
+	command_factory "Golang-Design-Patterns/command-factory"
 	"Golang-Design-Patterns/facade"
 	"Golang-Design-Patterns/factory"
-	"Golang-Design-Patterns/builder"
 	"Golang-Design-Patterns/singleton"
 	s "Golang-Design-Patterns/strategy"
 	"Golang-Design-Patterns/template"
@@ -67,6 +68,13 @@ func main(){
 	food = chef.MixMaterials(_pastaBuilder)
 	food.Cook()
 
+	fmt.Printf("---------------------------\n")
+
+
+	fmt.Printf("Command-Factory Pattern:\n")
+	factory :=  command_factory.NewCommandFactory()
+	commandFunc := factory.GetCommand("SaleEmailCommandType1")
+	commandFunc()
 
 	fmt.Printf("---------------------------\n")
 }
