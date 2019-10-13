@@ -3,6 +3,7 @@ package main
 import (
 	"Golang-Design-Patterns/adapter"
 	"Golang-Design-Patterns/builder"
+	"Golang-Design-Patterns/command"
 	command_factory "Golang-Design-Patterns/command-factory"
 	"Golang-Design-Patterns/facade"
 	"Golang-Design-Patterns/factory"
@@ -67,6 +68,19 @@ func main(){
 	_pastaBuilder := builder.PastaBuilder{}
 	food = chef.MixMaterials(_pastaBuilder)
 	food.Cook()
+
+
+	fmt.Printf("---------------------------\n")
+
+
+	fmt.Printf("Command Pattern:\n")
+	notification := &command.Notification{}
+	job1 := command.NewJob1Command(notification)
+	job2 := command.NewJob2Command(notification)
+
+	jobs := command.NewJobs(job1, job2)
+	jobs.RunJob1()
+	jobs.RunJob2()
 
 	fmt.Printf("---------------------------\n")
 
