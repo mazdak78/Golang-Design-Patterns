@@ -7,6 +7,7 @@ import (
 	command_factory "Golang-Design-Patterns/command-factory"
 	"Golang-Design-Patterns/facade"
 	"Golang-Design-Patterns/factory"
+	"Golang-Design-Patterns/proxy"
 	"Golang-Design-Patterns/singleton"
 	s "Golang-Design-Patterns/strategy"
 	"Golang-Design-Patterns/template"
@@ -89,6 +90,14 @@ func main(){
 	factory :=  command_factory.NewCommandFactory()
 	commandFunc := factory.GetCommand("SaleEmailCommandType1")
 	commandFunc()
+
+	fmt.Printf("---------------------------\n")
+
+	fmt.Printf("Proxy Pattern:\n")
+	proxy := proxy.ProxyAccounting{}
+	proxy.DoAccounting(100)
+
+	proxy.DoAccounting(0)
 
 	fmt.Printf("---------------------------\n")
 }
