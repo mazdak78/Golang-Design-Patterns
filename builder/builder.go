@@ -19,12 +19,10 @@ func (f *Food) Cook(){
 	fmt.Printf("%s in %v minutes will turn into %s \n", f.Materials, f.TimeToCook,f.Name)
 }
 
-
 //MixMaterials
 func (d *ChefDirector) MixMaterials(builder foodBuilder) *Food{
 	return builder.GetFood()
 }
-
 
 type SteakBuilder struct {
 }

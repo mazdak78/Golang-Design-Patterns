@@ -16,7 +16,6 @@ func (l *Informer) SendSaleEmailType1() {
 	fmt.Println("Inform customers type 1")
 }
 
-
 //SaleEmailCommand - ConcreteCommand
 type SaleEmailCommand struct {
 	Informer *Informer

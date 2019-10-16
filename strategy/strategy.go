@@ -32,5 +32,3 @@ type CampaignType2 struct{}
 func (*CampaignType2) CreateCampaign(ctx *CampaignContext) {
 	fmt.Printf("CampaignType2: %s created.\n",ctx.Name)
 }
-
-

@@ -9,7 +9,6 @@ type IAccounting interface {
 
 // Accounting represents real objects which proxy will delegate data
 type Accounting struct {
-
 }
 
 // DoAccounting implements IAccounting interface and handel's all logic

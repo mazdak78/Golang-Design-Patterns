@@ -41,7 +41,6 @@ func ConfigRepository() *repository {
 		_configs["Config 1"] = "Value 1"
 		_configs["Config 2"] = "Value 2"
 
-
 		r = &repository{
 			configs: _configs,
 		}
