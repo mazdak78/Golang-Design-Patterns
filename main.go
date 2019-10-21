@@ -5,6 +5,7 @@ import (
 	"Golang-Design-Patterns/builder"
 	"Golang-Design-Patterns/command"
 	command_factory "Golang-Design-Patterns/command-factory"
+	"Golang-Design-Patterns/decorator"
 	"Golang-Design-Patterns/facade"
 	"Golang-Design-Patterns/factory"
 	"Golang-Design-Patterns/proxy"
@@ -98,6 +99,14 @@ func main(){
 	proxy.DoAccounting(100)
 
 	proxy.DoAccounting(0)
+
+	fmt.Printf("---------------------------\n")
+
+
+	fmt.Printf("Decorator Pattern:\n")
+	allDecorators := []decorator.URLDecorator{ decorator.RemoveHTTP, decorator.RemoveHTTPS, decorator.RemoveWWW}
+	decoratedURL := decorator.URLDecorate("https://www.mywebsite.com", allDecorators...)
+	fmt.Println(decoratedURL)
 
 	fmt.Printf("---------------------------\n")
 }
