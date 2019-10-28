@@ -19,6 +19,7 @@ Some examples of Design patters in Golang. I gather these examples during time a
 - Template Design Pattern
 - Command Design Pattern
 - Strategy Design Pattern
+- Observer Design Pattern
 
 ### Others
 - Command-Factory Design Pattern
