@@ -8,6 +8,7 @@ import (
 	"Golang-Design-Patterns/decorator"
 	"Golang-Design-Patterns/facade"
 	"Golang-Design-Patterns/factory"
+	"Golang-Design-Patterns/observer"
 	"Golang-Design-Patterns/proxy"
 	"Golang-Design-Patterns/singleton"
 	s "Golang-Design-Patterns/strategy"
@@ -107,6 +108,31 @@ func main(){
 	allDecorators := []decorator.URLDecorator{ decorator.RemoveHTTP, decorator.RemoveHTTPS, decorator.RemoveWWW}
 	decoratedURL := decorator.URLDecorate("https://www.mywebsite.com", allDecorators...)
 	fmt.Println(decoratedURL)
+
+	fmt.Printf("---------------------------\n")
+
+
+	fmt.Printf("Observer Pattern:\n")
+
+	subject := observer.NewSubject()
+	concreteObserverA := observer.NewConcreteNotifierA()
+	concreteObserverA1 := observer.NewConcreteNotifierA()
+	concreteObserverB := observer.NewConcreteNotifierB()
+	concreteObserverB1 := observer.NewConcreteNotifierB()
+
+	subject.Attach(concreteObserverA)
+	subject.Attach(concreteObserverA1)
+	subject.Attach(concreteObserverB)
+	subject.Attach(concreteObserverB1)
+
+	fmt.Printf("First Scan\n")
+	subject.ScanData()
+
+	subject.DeAttach(concreteObserverB)
+	subject.DeAttach(concreteObserverA)
+
+	fmt.Printf("Second Scan\n")
+	subject.ScanData()
 
 	fmt.Printf("---------------------------\n")
 }
