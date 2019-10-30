@@ -3,6 +3,7 @@ package main
 import (
 	"Golang-Design-Patterns/adapter"
 	"Golang-Design-Patterns/builder"
+	chain_of_responsibility "Golang-Design-Patterns/chain-of-responsibility"
 	"Golang-Design-Patterns/command"
 	command_factory "Golang-Design-Patterns/command-factory"
 	"Golang-Design-Patterns/decorator"
@@ -133,6 +134,35 @@ func main(){
 
 	fmt.Printf("Second Scan\n")
 	subject.ScanData()
+
+	fmt.Printf("---------------------------\n")
+
+
+	fmt.Printf("Chain of Responsibility Pattern:\n")
+	headEditor := chain_of_responsibility.HeadEditor{}
+	headAccounter := chain_of_responsibility.HeadAccounter{}
+	headManager := chain_of_responsibility.HeadManager{}
+
+	request := chain_of_responsibility.CustomerBalanceRequest{
+		CustomerName: "John",
+		Balance:      500,
+	}
+
+	//create the chain here
+	headEditor.Next = &headAccounter
+	headAccounter.Next = &headManager
+
+	headEditor.Handle(request)
+
+	request.Balance = 3000
+	request.CustomerName = "Jared"
+
+	headEditor.Handle(request)
+
+	request.Balance = 10000
+	request.CustomerName = "Maz"
+
+	headEditor.Handle(request)
 
 	fmt.Printf("---------------------------\n")
 }
