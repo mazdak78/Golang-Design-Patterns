@@ -10,6 +10,7 @@ import (
 	"Golang-Design-Patterns/facade"
 	"Golang-Design-Patterns/factory"
 	"Golang-Design-Patterns/observer"
+	"Golang-Design-Patterns/prototype"
 	"Golang-Design-Patterns/proxy"
 	"Golang-Design-Patterns/singleton"
 	s "Golang-Design-Patterns/strategy"
@@ -163,6 +164,17 @@ func main(){
 	request.CustomerName = "Maz"
 
 	headEditor.Handle(request)
+
+	fmt.Printf("---------------------------\n")
+
+	fmt.Printf("Prototype Pattern:\n")
+	customer := prototype.NewCustomer("John", "john@gmail.com")
+	fmt.Printf("First time, Customer name: %v, Email: %v\n", customer.Name, customer.Email)
+
+	customer2 := customer.WithName("Jared")
+	fmt.Printf("Cloned Customer, Customer name: %v, Email: %v\n", customer2.Name, customer2.Email)
+
+	fmt.Printf("Second time, Customer name: %v, Email: %v\n", customer.Name, customer.Email)
 
 	fmt.Printf("---------------------------\n")
 }
