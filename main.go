@@ -9,6 +9,7 @@ import (
 	"Golang-Design-Patterns/decorator"
 	"Golang-Design-Patterns/facade"
 	"Golang-Design-Patterns/factory"
+	"Golang-Design-Patterns/flyweight"
 	"Golang-Design-Patterns/observer"
 	"Golang-Design-Patterns/prototype"
 	"Golang-Design-Patterns/proxy"
@@ -175,6 +176,24 @@ func main(){
 	fmt.Printf("Cloned Customer, Customer name: %v, Email: %v\n", customer2.Name, customer2.Email)
 
 	fmt.Printf("Second time, Customer name: %v, Email: %v\n", customer.Name, customer.Email)
+
+	fmt.Printf("---------------------------\n")
+
+	fmt.Printf("Flyweight Pattern:\n")
+	shapeFactory := flyweight.NewShapeFactory()
+	shape1 := shapeFactory.GetShapeToDisplay(flyweight.CircleType)
+	shape1.DrawShape()
+
+	shape2 := shapeFactory.GetShapeToDisplay(flyweight.RectangleType)
+	shape2.DrawShape()
+
+	shape3 := shapeFactory.GetShapeToDisplay(flyweight.CircleType)
+	shape3.DrawShape()
+
+	shape4 := shapeFactory.GetShapeToDisplay(flyweight.RectangleType)
+	shape4.DrawShape()
+
+	fmt.Printf("Number of created shapes: %v\n", shapeFactory.ObjectCount)
 
 	fmt.Printf("---------------------------\n")
 }
