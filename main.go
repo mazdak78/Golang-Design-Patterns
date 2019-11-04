@@ -2,6 +2,7 @@ package main
 
 import (
 	"Golang-Design-Patterns/adapter"
+	"Golang-Design-Patterns/bridge"
 	"Golang-Design-Patterns/builder"
 	chain_of_responsibility "Golang-Design-Patterns/chain-of-responsibility"
 	"Golang-Design-Patterns/command"
@@ -194,6 +195,25 @@ func main(){
 	shape4.DrawShape()
 
 	fmt.Printf("Number of created shapes: %v\n", shapeFactory.ObjectCount)
+
+	fmt.Printf("---------------------------\n")
+
+	fmt.Printf("Bridge Pattern:\n")
+
+	app := bridge.App{
+		CurrentUser: 20,
+	}
+	saleApp := bridge.SaleApp{}
+	app.AppContext = &saleApp
+
+	app.GetTasks()
+
+	adminApp := bridge.AdminApp{}
+
+	app.CurrentUser = 30
+	app.AppContext = &adminApp
+
+	app.GetAccount()
 
 	fmt.Printf("---------------------------\n")
 }

@@ -16,6 +16,7 @@ Some examples of Design patters in Golang. I gather these examples during time a
 - Proxy Design Pattern
 - Decorator Design Pattern
 - Flyweight Design Pattern
+- Bridge Design Pattern
 
 ### Behavioral patterns
 - Template Design Pattern
