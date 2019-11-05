@@ -15,6 +15,7 @@ import (
 	"Golang-Design-Patterns/prototype"
 	"Golang-Design-Patterns/proxy"
 	"Golang-Design-Patterns/singleton"
+	"Golang-Design-Patterns/state"
 	s "Golang-Design-Patterns/strategy"
 	"Golang-Design-Patterns/template"
 	"fmt"
@@ -214,6 +215,26 @@ func main(){
 	app.AppContext = &adminApp
 
 	app.GetAccount()
+
+	fmt.Printf("---------------------------\n")
+
+	fmt.Printf("State Pattern:\n")
+
+	newLead := state.NewLead(&state.ConcreteState1{})
+	newLead.GetStateName()
+	newLead.GoToNextState()
+
+	newLead.GetStateName()
+
+	newLead.GoToPreviousState()
+
+	newLead.GetStateName()
+
+	newLead.GoToNextState()
+
+	newLead.GetStateName()
+
+	newLead.GoToNextState()
 
 	fmt.Printf("---------------------------\n")
 }
